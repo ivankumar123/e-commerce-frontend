@@ -1,0 +1,23 @@
+*what is react?
+-react is a external library that helps us create websites easier
+
+*<script> element can load code from anywhere from the internet
+
+
+*what is babel?
+-babel is a javasript compliler that translates other languages into javascript 
+
+*component is a piece of a website
+
+*components create our own html elements
+
+*props make componets reusable
+
+
+*Event handler = run a function when we interact with the website
+
+*(...) spread operator == basically takes an array and copies it in a new array
+
+*state = data the is connected to the html
+--when we update the data it would update the html
+

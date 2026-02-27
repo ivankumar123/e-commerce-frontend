@@ -3,6 +3,7 @@ import { useEffect , useState } from "react";
 import "./Homepage.css";
 import { Header } from "../components/Header";
 
+
 export function Homepage() {
     const [products, setProducts] = useState([]);
    

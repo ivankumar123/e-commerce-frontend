@@ -15,7 +15,6 @@ function App() {
     axios.get("/api/cart-items?expand=product")
       .then((response) => {
           setcart(response.data);
-          console.log(response.data)
         });
         
         

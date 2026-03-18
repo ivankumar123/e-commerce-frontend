@@ -1,17 +1,20 @@
 import { Fragment, useEffect, useState } from "react";
 import axios from "axios";
-import { Header } from "../components/Header";
+import { Header } from "../../components/Header";
 import "./Orders.css";
 import dayjs from "dayjs";
-import { Amount } from "../src/utilities/money";
+import { Amount } from "../../src/utilities/money";
 
 export function Orders({ cart }) {
   const [orders, setorders] = useState([]);
 
   useEffect(() => {
-    axios.get("/api/orders?expand=products").then((res) => {
-      setorders(res.data);
-    });
+    const getorders = async () => {
+      const Ordersno = await axios.get("/api/orders?expand=products");
+      setorders(Ordersno.data);
+    };
+
+    getorders();
   });
   return (
     <>
@@ -47,8 +50,8 @@ export function Orders({ cart }) {
                 <div className="order-details-grid">
                   {order.products.map((orderproduct) => {
                     return (
-                      < Fragment key={orderproduct.id} >
-                        <div  className="product-image-container">
+                      <Fragment key={orderproduct.id}>
+                        <div className="product-image-container">
                           <img src={orderproduct.product.image} />
                         </div>
 
@@ -57,9 +60,14 @@ export function Orders({ cart }) {
                             {orderproduct.product.name}
                           </div>
                           <div className="product-delivery-date">
-                           Arriving at date: {dayjs(orderproduct.estimatedDeliveryTimeMs).format('MMMM D')}
+                            Arriving at date:{" "}
+                            {dayjs(orderproduct.estimatedDeliveryTimeMs).format(
+                              "MMMM D",
+                            )}
                           </div>
-                          <div className="product-quantity">Quantity :{orderproduct.quantity}</div>
+                          <div className="product-quantity">
+                            Quantity :{orderproduct.quantity}
+                          </div>
                           <button className="buy-again-button button-primary">
                             <img
                               className="buy-again-icon"
@@ -80,7 +88,7 @@ export function Orders({ cart }) {
                         </div>
                       </Fragment>
                     );
-                  })}                           
+                  })}
                 </div>
               </div>
             );

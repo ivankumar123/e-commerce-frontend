@@ -2,14 +2,14 @@ import dayjs from "dayjs";
 import { Amount } from "../../src/utilities/money";
 import { Deliveryot } from "./Deliveryot";
 
-export function Ordersum( { cart , deliveryoptions}){
+export function Ordersum( { cart , deliveryoptions, loadcart }) {
     return(
          <div className="order-summary">
             {deliveryoptions.length > 0 &&
               cart.map((cartItem) => {
                 const selectedelivery = deliveryoptions.find(
                   (deliveryoption) => {
-                    return deliveryoption.id === cartItem.deliveryoptionId;
+                    return deliveryoption.id === cartItem.deliveryOptionId;
                   },
                 );
 
@@ -17,7 +17,7 @@ export function Ordersum( { cart , deliveryoptions}){
                   <div key={cartItem.productId} className="cart-item-container">
                     <div className="delivery-date">
                       Delivery date:{" "}
-                      {dayjs(selectedelivery).format("dddd , MMMM D")}
+                      {dayjs(selectedelivery?.estimatedDeliveryTimeMs).format("dddd , MMMM D")}
                     </div>
 
                     <div className="cart-item-details-grid">
@@ -49,7 +49,7 @@ export function Ordersum( { cart , deliveryoptions}){
                         </div>
                       </div>
 
-                      <Deliveryot cartItem={cartItem} deliveryOptions={deliveryoptions}  />
+                      <Deliveryot cartItem={cartItem} deliveryOptions={deliveryoptions} loadcart={loadcart} />
                     </div>
                   </div>
                 );

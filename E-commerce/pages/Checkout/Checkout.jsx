@@ -6,7 +6,7 @@ import { Ordersum } from "./Ordersum";
 import { Paymentsum } from "./paymentsum";
 import { Checkoutheader } from "./Checkoutheader";
 
-export function Checkout({ cart }) {
+export function Checkout({ cart,  loadcart }) {
   const [deliveryoptions, setdeliveryoptions] = useState([]);
   const [paymentsum, setpaymentsum] = useState([]);
 
@@ -22,7 +22,7 @@ export function Checkout({ cart }) {
 
     del();  
     
-  }, []);
+  }, [cart]);
 
   return (
     <>
@@ -32,7 +32,7 @@ export function Checkout({ cart }) {
         <div className="page-title">Review your order</div>
 
         <div className="checkout-grid">
-        <Ordersum cart={cart} deliveryoptions={deliveryoptions}/> 
+        <Ordersum cart={cart} deliveryoptions={deliveryoptions} loadcart={loadcart}/> 
 
          <Paymentsum paymentsum={paymentsum}/>
         </div>

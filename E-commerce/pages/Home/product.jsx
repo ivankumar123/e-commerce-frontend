@@ -1,6 +1,6 @@
-import axios from 'axios';
-import { useState } from 'react';
-import { Amount } from '../../src/utilities/money';
+import axios from "axios";
+import { useState } from "react";
+import { Amount } from "../../utiles/money";
 
 export function Product({ product, loadcart }) {
   const [quantity, setQuantity] = useState(1);
@@ -12,9 +12,9 @@ export function Product({ product, loadcart }) {
       setAddedMessageVisible(false);
     }, 2000);
 
-    await axios.post('/api/cart-items', {
+    await axios.post("/api/cart-items", {
       productId: product.id,
-      quantity
+      quantity,
     });
     await loadcart();
   };
@@ -27,25 +27,22 @@ export function Product({ product, loadcart }) {
   return (
     <div className="product-container">
       <div className="product-image-container">
-        <img className="product-image"
-          src={product.image} />
+        <img className="product-image" src={product.image} />
       </div>
 
-      <div className="product-name limit-text-to-2-lines">
-        {product.name}
-      </div>
+      <div className="product-name limit-text-to-2-lines">{product.name}</div>
 
       <div className="product-rating-container">
-        <img className="product-rating-stars"
-          src={`images/ratings/rating-${product.rating.stars * 10}.png`} />
+        <img
+          className="product-rating-stars"
+          src={`images/ratings/rating-${product.rating.stars * 10}.png`}
+        />
         <div className="product-rating-count link-primary">
           {product.rating.count}
         </div>
       </div>
 
-      <div className="product-price">
-        {Amount(product.priceCents)}
-      </div>
+      <div className="product-price">{Amount(product.priceCents)}</div>
 
       <div className="product-quantity-container">
         <select value={quantity} onChange={selectQuantity}>
@@ -64,13 +61,18 @@ export function Product({ product, loadcart }) {
 
       <div className="product-spacer"></div>
 
-      <div className="added-to-cart" style={{ opacity: addedMessageVisible ? 1 : 0, transition: 'opacity 0.3s' }}>
+      <div
+        className="added-to-cart"
+        style={{
+          opacity: addedMessageVisible ? 1 : 0,
+          transition: "opacity 0.3s",
+        }}
+      >
         <img src="images/icons/checkmark.png" />
         Added
       </div>
 
-      <button className="add-to-cart-button button-primary"
-        onClick={addToCart}>
+      <button className="add-to-cart-button button-primary" onClick={addToCart}>
         Add to Cart
       </button>
     </div>

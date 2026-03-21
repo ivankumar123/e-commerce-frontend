@@ -3,9 +3,9 @@ import axios from "axios";
 import { Header } from "../../components/Header";
 import "./Orders.css";
 import dayjs from "dayjs";
-import { Amount } from "../../src/utilities/money";
+import { Amount } from "../../utiles/money";
 
-export function Orders({ cart }) {
+export function Orders({ cart, loadcart }) {
   const [orders, setorders] = useState([]);
 
   useEffect(() => {
@@ -16,6 +16,7 @@ export function Orders({ cart }) {
 
     getorders();
   });
+
   return (
     <>
       <Header cart={cart} />

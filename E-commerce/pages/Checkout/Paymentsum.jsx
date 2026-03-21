@@ -1,4 +1,4 @@
-import { Amount } from "../../src/utilities/money";
+import { Amount } from "../../utiles/money";
 import axios from "axios";
 import { useNavigate } from "react-router";
 

@@ -3,9 +3,8 @@ export function Checkoutheader(){
         <div className="checkout-header">
                 <div className="header-content">
                   <div className="checkout-header-left-section">
-                    <a href="/">
-                      <img className="logo" src="images/logo.png" />
-                      <img className="mobile-logo" src="images/mobile-logo.png" />
+                    <a href="/" style={{textDecoration: 'none'}}>
+                      <span className="logo-text">Cartly</span>
                     </a>
                   </div>
         

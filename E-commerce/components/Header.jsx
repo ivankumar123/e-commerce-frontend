@@ -12,9 +12,8 @@ export function Header( { cart } ) {
   return (
     <div className="header">
       <div className="left-section">
-        <Link to="/" className="header-link">
-          <img className="logo" src="images/logo-white.png" />
-          <img className="mobile-logo" src="images/mobile-logo-white.png" />
+        <Link to="/" className="header-link" style={{textDecoration: 'none'}}>
+          <span className="logo-text">Cartly</span>
         </Link>
       </div>
 

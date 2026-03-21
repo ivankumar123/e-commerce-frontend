@@ -3,7 +3,7 @@ import { useEffect , useState } from "react";
 import { Productgrid } from "./Productgrid";
 import "./Homepage.css";
 import { Header } from "../../components/Header";
-import { Orders } from "../Orders/Orders";
+
 
 
 export function Homepage( {cart, loadcart} ) {

@@ -26,31 +26,27 @@
   width: 200px;
 }
 
-.checkout-header .logo {
-  height: 26px;
-  margin-top: 0px;
+.checkout-header .logo-text {
+  font-size: 28px;
+  font-weight: 900;
+  color: #2563eb;
+  font-family: 'Righteous', 'Fredoka One', 'Comic Sans MS', cursive, sans-serif;
+  text-shadow: 1px 1px 0px #93c5fd, 2px 2px 0px #bfdbfe;
+  letter-spacing: 1px;
+  transform: rotate(-3deg);
+  display: inline-block;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
+  margin-top: 2px;
 }
 
-.checkout-header .mobile-logo {
-  display: none;
+.checkout-header .logo-text:hover {
+  transform: scale(1.05) rotate(0deg);
+  text-shadow: 2px 2px 0px #93c5fd, 3px 3px 0px #bfdbfe;
 }
 
-/* @media is used to create responsive design (making the
-   website look good on any screen size). This @media
-   means when the screen width is 575px or less, different
-   styles (inside the {...}) will be applied. */
 @media (max-width: 575px) {
-  .checkout-header .checkout-header-left-section {
-    width: auto;
-  }
-
-  .checkout-header .logo {
-    display: none;
-  }
-
-  .checkout-header .mobile-logo {
-    display: inline-block;
-    height: 26px;
+  .checkout-header .logo-text {
+    font-size: 24px;
   }
 }
 
@@ -67,7 +63,7 @@
 }
 
 .checkout-header .return-to-home-link {
-  color: rgb(25, 135, 84);
+  color: rgb(33, 33, 33);
 
   text-decoration: none;
   cursor: pointer;

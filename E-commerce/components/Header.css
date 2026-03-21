@@ -1,5 +1,5 @@
 .header {
-  background-color: rgb(8, 79, 45);
+  background-color: #2563eb;
   color: white;
   padding-left: 15px;
   padding-right: 15px;
@@ -38,24 +38,27 @@
   border: 1px solid white;
 }
 
-.header .logo {
-  height: 26px;
-  margin-top: 1px;
+.header .logo-text {
+  font-size: 28px;
+  font-weight: 900;
+  color: #ffffff;
+  font-family: 'Righteous', 'Fredoka One', 'Comic Sans MS', cursive, sans-serif;
+  text-shadow: 2px 2px 0px #1d4ed8, 4px 4px 0px #60a5fa;
+  letter-spacing: 1px;
+  transform: rotate(-3deg);
+  display: inline-block;
+  transition: transform 0.2s ease, text-shadow 0.2s ease;
 }
 
-.header .mobile-logo {
-  display: none;
+.header .logo-text:hover {
+  transform: scale(1.08) rotate(2deg);
+  text-shadow: 3px 3px 0px #1d4ed8, 5px 5px 0px #60a5fa;
 }
 
 @media (max-width: 675px) {
-  .header .logo {
-    display: none;
-  }
-
-  .header .mobile-logo {
-    display: block;
-    height: 26px;
-    margin-top: 1px;
+  .header .logo-text {
+    font-size: 22px;
+    text-shadow: 1px 1px 0px #1d4ed8, 3px 3px 0px #60a5fa;
   }
 }
 
@@ -81,7 +84,7 @@
 }
 
 .header .search-button {
-  background-color: rgb(186, 255, 190);
+  background-color: #93c5fd;
   border: none;
   width: 45px;
   height: 40px;
@@ -136,7 +139,7 @@
 }
 
 .header .cart-quantity {
-  color: rgb(8, 79, 45);
+  color: #2563eb;
   font-size: 14px;
   font-weight: 700;
 

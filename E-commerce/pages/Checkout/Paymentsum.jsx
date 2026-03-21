@@ -1,7 +1,15 @@
-import { Amount } from "../../src/utilities/money"
-import axios from "axios"
+import { Amount } from "../../src/utilities/money";
+import axios from "axios";
+import { useNavigate } from "react-router";
 
-export function Paymentsum({ paymentsum }) {
+export function Paymentsum({ paymentsum, loadcart }) {
+  const navigate = useNavigate();
+  const placeOrder = async () => {
+    await axios.post("/api/orders");
+    await loadcart();
+
+    navigate("/orders");
+  };
 
   return (
     <div className="payment-summary">
@@ -44,13 +52,14 @@ export function Paymentsum({ paymentsum }) {
             </div>
           </div>
 
-          <button className="place-order-button button-primary"
-            onClick={placeorder}
+          <button
+            className="place-order-button button-primary"
+            onClick={placeOrder}
           >
             Place your order
           </button>
         </>
       )}
     </div>
-  )
+  );
 }

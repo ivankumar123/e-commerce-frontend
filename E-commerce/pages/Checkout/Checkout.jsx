@@ -34,7 +34,7 @@ export function Checkout({ cart,  loadcart }) {
         <div className="checkout-grid">
         <Ordersum cart={cart} deliveryoptions={deliveryoptions} loadcart={loadcart}/> 
 
-         <Paymentsum paymentsum={paymentsum}/>
+         <Paymentsum paymentsum={paymentsum} loadcart={loadcart}/>
         </div>
       </div>
     </>

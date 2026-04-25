@@ -3,12 +3,12 @@ import "./Checkout-header.css";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { Ordersum } from "./Ordersum";
-import { Paymentsum } from "./paymentsum";
+import { Paymentsum } from "./Paymentsum";
 import { Checkoutheader } from "./Checkoutheader";
 
 export function Checkout({ cart,  loadcart }) {
   const [deliveryoptions, setdeliveryoptions] = useState([]);
-  const [paymentsum, setpaymentsum] = useState([]);
+  const [paymentsum, setpaymentsum] = useState(null);
 
   useEffect(() => {
     const del = async () => {

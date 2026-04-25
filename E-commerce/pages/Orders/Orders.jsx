@@ -15,7 +15,15 @@ export function Orders({ cart, loadcart }) {
     };
 
     getorders();
-  });
+  }, []);
+
+  const addToCart = async (productId, quantity) => {
+    await axios.post("/api/cart-items", {
+      productId: productId,
+      quantity: 1,
+    });
+    await loadcart();
+  };
 
   return (
     <>
@@ -69,7 +77,10 @@ export function Orders({ cart, loadcart }) {
                           <div className="product-quantity">
                             Quantity :{orderproduct.quantity}
                           </div>
-                          <button className="buy-again-button button-primary">
+                          <button
+                            className="buy-again-button button-primary"
+                            onClick={() => addToCart(orderproduct.product.id)}
+                          >
                             <img
                               className="buy-again-icon"
                               src="images/icons/buy-again.png"

@@ -1,4 +1,4 @@
 {
-  "buildCommand": "cd E-commerce && npm run build",
+  "buildCommand": "cd E-commerce && npm install && npm run build",
   "outputDirectory": "E-commerce/dist"
 }

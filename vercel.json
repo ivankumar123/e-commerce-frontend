@@ -1,0 +1,5 @@
+{
+  "buildCommand": "cd E-commerce && npm run build",
+  "outputDirectory": "E-commerce/dist",
+  "nodeVersion": "20.x"
+}
